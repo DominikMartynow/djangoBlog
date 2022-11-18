@@ -1,0 +1,74 @@
+{% extends "blog_/base.html" %}
+
+{% block content %}
+    {% if post.image != "" %}
+    <img src="/media/{{ post.image }}" width="300px"/>
+    {% endif %}
+
+    <h1> {{ post.title }} </h1>
+
+    <p> {{ post.date_added|date:'d/m/Y H:i' }}</p>
+
+    <p> {{ post.description }} </p>
+
+    <p> {{ post.content}} </p>
+
+    <hr>
+
+    <form action="{% url 'blog_:like' post.id %}" method="post">
+        {% csrf_token %}
+        <button name="submit">    
+            {% if if_clicked %}
+            Polubiono
+            {% else %}
+            Polub
+            {% endif %}
+        </button>
+    </form>
+
+
+    <button onclick=popup_wrapper_button_open()>{{ likesCount }}</button>
+
+    <div class="post_likes_wrapper">
+        {% for like in likes %}
+            <a href="{% url 'blog_:userProfile' like.owner.id %}">{{ like.owner }}</a> <br>
+        {% empty %}
+            Nikt nie dał like
+        {% endfor %}
+
+        <button name ="submit" onclick=popup_wrapper_button_close()>zamknij</button>
+    </div>
+
+
+    <hr>
+
+    <p> Komentarze: </p>
+
+    <form action="{% url 'blog_:post' post.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit" value="xyz">Dodaj komentarz</button>
+    </form>
+
+    <ul>
+        {% for comment in comments %}
+        <li>
+            <p><a href="{% url 'blog_:userProfile' comment.owner.id %}">{{ comment.owner }}</a> - {{ comment.date_added|date:'d/m/Y H:i' }}</p>
+            <p>{{ comment.text|linebreaks }}</p>
+            {% if request.user == comment.owner %}
+            <form action="{% url 'blog_:deleteComment' post.id comment.id %}" method="post">
+                {% csrf_token %}
+                <button name="submit">Usun komentarz</button>
+            </form>
+        
+            {% endif %}
+
+        </li>
+        {% empty %}
+        <li>
+            Nie ma jeszcze żadnych komentarzy, napisz pierwszy!
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends "blog_/base.html" %}
+
+{% block content %}
+    {% if request.user.id == user_values.id %}
+
+    Imię: {{user_values.first_name}} <br>
+    Nazwisko: {{user_values.last_name}} <br>
+    email: {{user_values.email}} <br>
+
+    {% endif %}
+
+    Nazwa użytkownika: {{user_values.username}}#{{user_values.id}} <br>
+    Data dołączenia: {{user_values.date_joined|date:'d/m/Y H:i'}} <br>
+
+    <br>
+
+    Data ostatniego logowania: {{user_values.last_login|date:'d/m/Y H:i'}} <br>
+
+{% endblock content %}

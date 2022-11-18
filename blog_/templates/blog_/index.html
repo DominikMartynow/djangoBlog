@@ -1,0 +1,25 @@
+{% extends "blog_/base.html" %}
+
+{% block content %}
+<p>Blog super strona typu index</p>
+
+<ul>
+    {% for post in posts %}
+    <li>
+        <a href="{% url 'blog_:post' post.id %}">
+            <div class="post">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.description }}</p>
+                <p>{{ post.date_added|date:'d/m/Y H:i' }}</p>
+                {% if post.image != "" %}
+                    <img src="/media/{{ post.image }}" width="300px"/>
+                {% endif %}
+            </div>
+        </a>
+    </li>
+    {% empty %}
+    <li> Nie ma żadnych postów</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

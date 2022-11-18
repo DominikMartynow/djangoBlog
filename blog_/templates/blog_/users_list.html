@@ -1,0 +1,8 @@
+{% extends "blog_/base.html" %}
+
+{% block content %}
+    {% for user in users %}
+        <a href="{% url 'blog_:userProfile' user.id %}"> {{ user.id }} - {{user.username}} </a> <br>
+    {% empty %}
+    {% endfor %}
+{% endblock content %}

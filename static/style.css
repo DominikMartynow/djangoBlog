@@ -1,0 +1,11 @@
+.post_likes_wrapper{
+    display: none;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.post_likes_popup_close{
+    width: 1002px;
+    display: none;
+}
