@@ -17,7 +17,7 @@
 
     <form action="{% url 'blog_:like' post.id %}" method="post">
         {% csrf_token %}
-        <button name="submit">    
+        <button name="submit" value="">    
             {% if if_clicked %}
             Polubiono
             {% else %}
@@ -27,7 +27,7 @@
     </form>
 
 
-    <button onclick=popup_wrapper_button_open()>{{ likesCount }}</button>
+    <button onclick=popup_likes_list_wrapper_button_open()>{{ likesCount }}</button>
 
     <div class="post_likes_wrapper">
         {% for like in likes %}
@@ -36,9 +36,8 @@
             Nikt nie dał like
         {% endfor %}
 
-        <button name ="submit" onclick=popup_wrapper_button_close()>zamknij</button>
+        <button name ="submit" onclick=popup_likes_list_wrapper_button_close()>zamknij</button>
     </div>
-
 
     <hr>
 

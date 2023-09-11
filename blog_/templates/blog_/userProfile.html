@@ -9,11 +9,51 @@
 
     {% endif %}
 
+    <br>
+
     Nazwa użytkownika: {{user_values.username}}#{{user_values.id}} <br>
     Data dołączenia: {{user_values.date_joined|date:'d/m/Y H:i'}} <br>
 
-    <br>
-
     Data ostatniego logowania: {{user_values.last_login|date:'d/m/Y H:i'}} <br>
+
+    <hr>
+
+    Polubione posty: <br>
+
+    {% for liked_post in posts_liked %}
+
+    <a href="{% url 'blog_:post' liked_post.post.id %}">
+        <div>
+            <b>{{liked_post.post.title}}</b> <br>
+            {{liked_post.post.description}} <br>
+            - <br>
+            Data polubienia: {{liked_post.date_added|date:'d/m/Y H:i'}} 
+            <br><br>
+        </div>
+    </a>
+
+    {% empty %}
+    <p>Użytkownik nie polubił żadnych postów</p>
+    {% endfor %}
+
+    <hr>
+
+    Komentarze użytkownika: <br> <br>
+
+    {% for comment in posts_commented %}
+
+    <a href="{% url 'blog_:post' comment.post.id %}">
+        <div>
+            <b>{{comment.post.title}}</b> <br>
+            {{comment.text}} <br>
+            - <br>
+            Data polubienia: {{comment.date_added|date:'d/m/Y H:i'}} 
+            <br><br>
+        </div>
+    </a>
+
+    {% empty %}
+    <p>Użytkownik nie skomentował żadnych postów</p>
+    {% endfor %}
 
 {% endblock content %}

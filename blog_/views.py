@@ -42,6 +42,7 @@ def post(request, post_id):
 
     return render(request, 'blog_/post.html', context)
 
+@require_http_methods(['POST', 'GET'])
 @login_required
 def like(request, post_id):
     """Like"""
@@ -69,9 +70,9 @@ def userProfile(request, user_id):
     user_values = get_user_model().objects.all().values().filter(id=user_id)
     user_values = user_values[0]
 
-    print(user_values)
-
-    context = {'user_values': user_values}
+    posts_liked = Like.objects.all().filter(owner=user_id).order_by('-date_added')
+    posts_commented = Comment.objects.all().filter(owner=user_id).order_by('-date_added')
+    context = {'user_values': user_values, 'posts_liked': posts_liked, 'posts_commented': posts_commented}
 
     return render(request, 'blog_/userProfile.html', context)
 

@@ -22,6 +22,5 @@ urlpatterns = [
     path('users_list/<int:user_id>/', views.userProfile, name='userProfile'),
 
     #usuwanie komentarza
-    path('<int:post_id>/delete_comment>/<int:user_id>/', views.deleteComment, name='deleteComment'),
-
+    path('<int:post_id>/<int:comment_id>/', views.deleteComment, name='deleteComment'),
 ]
