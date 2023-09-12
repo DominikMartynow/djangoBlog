@@ -1,8 +1,9 @@
 {% extends "blog_/base.html" %}
-
 {% block content %}
-    {% for user in users %}
-        <a href="{% url 'blog_:userProfile' user.id %}"> {{ user.id }} - {{user.username}} </a> <br>
-    {% empty %}
-    {% endfor %}
+{% for user in users %}
+<div class="lista">
+    <a href="{% url 'blog_:userProfile' user.id %}"> {{ user.id }} - {{user.username}} </a>
+</div>
+{% empty %}
+{% endfor %}
 {% endblock content %}

@@ -1,24 +1,37 @@
 <head>
     {% load static %}
-    <script src="{% static 'post_likes_popup.js' %}"></script> 
+    <script src="{% static 'post_likes_popup.js' %}"></script>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
-<p>
-    <a href="{% url 'blog_:index' %}">BLOG</a> - 
-
-    {% if user.is_authenticated %}
-        Witaj, <a href="{% url 'blog_:userProfile' user.id %}">{{user.username}}</a>.
-        <a href="{% url 'users:logout' %}">Wyloguj</a>
-        <a href="{% url 'blog_:users_list' %}">Lista użytkowników</a>
-    {% else %}
-        <a href="{% url 'users:login' %}">Zaloguj</a>
-        <a href="{% url 'users:register' %}">Zarejestruj</a>
-    {% endif %}
-</p>
+    <div class="header">
+        <ul class="ul">
+            <li>
+                <div>
+                    <a href="{% url 'blog_:index' %}" class="home">BLOG</a>
+                </div>
+            </li>
+            <li style="float:right;">
+                <div class="prawa">
+                    {% if user.is_authenticated %}
+                    <div class="witaj">
+                        <a class="kolorprawa">Witaj, {{user.username}}.</a>
+                        <br>
+                        <a href="{% url 'users:logout' %}" class="kolorprawa">Wyloguj</a>
+                        <a class="kolorprawa">|</a>
+                        <a href="{% url 'blog_:users_list' %}" class="kolorprawa">Lista użytkowników</a>
+                    </div>
+                    {% else %}
+                    <a href="{% url 'users:login' %}" class="kolorprawa">Zaloguj</a>
+                    <a class="kolorprawa">|</a>
+                    <a href="{% url 'users:register' %}" class="kolorprawa">Zarejestruj</a>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+    </div>
 </body>
 
-<hr>
 
 {% block content %}{% endblock content %}

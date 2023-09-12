@@ -1,36 +1,379 @@
-body{
+@font-face {
+    font-family: 'cogan';
+    src: url('cogan_straight_regular.ttf');
+}
+
+@font-face {
+    font-family: 'ig';
+    src: url(InstagramSansCondensed-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'igbold';
+    src: url(InstagramSansCondensed-Bold.ttf);
+}
+
+.header {
+    padding: 3px;
+    background-color: #1f96e6;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+
+}
+
+.home {
+    margin-left: 4%;
+    font-family: 'cogan';
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 250%;
+
+}
+
+.prawa {
+    font-weight: bold;
+    margin-left: 600px;
+    margin: 0%;
+    padding: 0%;
+}
+
+.kolorprawa {
+    color: #fff;
+}
+
+.witaj {
+    text-align: left;
+}
+
+ul.ul {
+    overflow: hidden;
+}
+
+.ul>li {
+
+    display: inline-block;
+}
+
+li {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+}
+
+ul.posts {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0;
+}
+
+.post {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+
+
+.tytul {
+    float: left;
+    padding: 0;
+    line-height: 40px;
+    font-family: 'igbold';
+}
+
+.opis {
+    clear: both;
+    text-align: justify;
+    font-family: 'ig';
+    font-size: 120%;
+
+}
+
+.data {
+    float: right;
+    padding: 0;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.gura {
+    display: inline;
+}
+
+.tyt {
+    font-family: 'igbold';
+    font-weight: bold;
+    margin-left: 15px;
+    font-size: 250%;
+}
+
+.postopis {
+    margin-left: 15px;
+    font-family: 'igbold';
+    font-size: 150%;
+}
+
+.postzaw {
+    margin-left: 15px;
+    font-family: 'ig';
+    font-size: 130%;
+}
+
+.postzdj {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 8px;
+
+}
+
+.date {
+    float: right;
+    padding: 0;
+    margin-right: 15px;
+    font-weight: bolder;
+}
+
+h2 {
     padding: 0;
     margin: 0;
 }
 
-.post_likes_wrapper{
+.zdj {
+    width: 100%;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.brak {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20%;
+}
+
+.lajkibox {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.lajki {
+    width: 50%;
+    left: 50%;
+    margin-left: -200px;
+    position: absolute;
+    height: 50px;
+    margin-top: 20px;
+
+}
+
+.like {
+    float: left;
+    display: inline;
+    height: 50px;
+    display: block;
+}
+
+.likewyg {
+    display: inline-block;
+    padding: 15px 25px;
+    width: 200px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #1f96e6;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.likewyg:hover {
+    background-color: #156092
+}
+
+.likewyg:active {
+    background-color: #1f96e6;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+
+
+.licznik {
+    display: inline-block;
+    padding: 15px 25px;
+    width: 100px;
+    margin-left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #1f96e6;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.licznik:hover {
+    background-color: #156092
+}
+
+
+.licznik:active {
+    background-color: #1f96e6;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+form {
+    padding: 0;
+    margin: 0;
+}
+
+.post_likes_wrapper {
     display: none;
     width: 100px;
-    height: 100px;
+    height: 70px;
     border: 1px solid black;
-    position: fixed;
-    background: white;
+    background-color: #fff;
+    margin-left: 350px;
+    margin-bottom: 100px;
 }
 
-.usersDataEditWrapperBg{
-    width: 100%;
-    height: 100%;
-    top: 0;
-    background: rgba(255, 255, 255, 0.658);
-    display: none;
-    position: fixed;
+.zamkniecie {
+    background-color: #1815d1;
+    border: none;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
-.usersDataEditWrapper{
-    width: 90%;
-    height: 500px;
-    padding: 0;
-    display: none;
-    border: 1px solid black;
-    position: absolute;
-    background: white;
-    left: 50%; 
-    margin-left: -45%;
-    top: 50%;
-    margin-top: -250px;
+.zamkniecie:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.wpisywanie {
+    margin-left: 8%;
+    font-family: 'ig';
+    font-size: 130%;
+}
+
+.guzikkom {
+    background-color: #1f96e6;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+
+}
+
+.guzikkom:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.komentarze {
+    display: inline;
+    font-family: 'ig';
+
+
+}
+
+.sekcjakom {
+    margin-left: 50px;
+    font-size: 130%;
+}
+
+.koment {
+    width: 320px;
+    border-bottom: 2px solid #1815d1;
+    padding-left: 5%;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.usun {
+    background-color: #1f96e6;
+    border: none;
+    color: white;
+    padding: 5px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.usun:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.logout {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 20%;
+}
+
+.zalog {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.lista {
+    text-align: center;
+    padding-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.rejestr {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10%;
+    font-family: Arial, Helvetica, sans-serif;
 }
