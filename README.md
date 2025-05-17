@@ -2,7 +2,8 @@
 
 How to run project?
 
-You have to install Python 10.0.5, and set path in <i>C:\Users\domin\Desktop\Blog\blog_env\pyvenv.cfg</i> to your Python path. <br>
+You have to install Python 10.0.5, and set path in 
+<i>*\blog_env\pyvenv.cfg</i> to your Python path. <br>
 Then type: <br>
 a) for Windows: <b><i>blog_env\Scripts\Activate</i></b><br>
 b) for Linux: <b><i>source blog_env/bin/activate</i></b><br>
